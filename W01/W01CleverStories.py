@@ -1,0 +1,13 @@
+print("Please enter the following:")
+adjective = input("Adjective: ")
+animal= input("Animal: ")
+verbOne = input("Verb: ")
+exclamation = input("Exclamation: ")
+verbTwo = input("Verb: ")
+verbThree = input("Verb: ")
+
+print('The other day, I was really in trouble. It all started when I saw a very')
+print(f'{adjective} {animal} {verbOne} down the hallway. "{exclamation}!" I yelled. But all')
+print(f'I could think to do was to {verbTwo} over and over. Miraculously,')
+print(f'that caused it to stop, but not before it tried to {verbThree}')
+print('right in front of my family.')

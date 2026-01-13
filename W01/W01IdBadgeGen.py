@@ -1,0 +1,18 @@
+print("Please enter the following information:")
+firstName = input("First Name: ")
+lastName = input("Last Name: ")
+email = input("Email Address: ")
+phone = input("Phone Number: ")
+jobTitle = input("Job Title: ")
+idNumber = input("ID Number: ")
+
+print("The ID Card is:")
+print("----------------------------------------")
+print(f"{lastName}, {firstName}")
+print(f"{jobTitle}")
+print(f"ID: {idNumber}")
+print()
+print(f"{email}")
+print(f"{phone}")
+print("----------------------------------------")
+
