@@ -25,7 +25,6 @@ cc = ""
 
 
 
-
 gamestatus = True
 print(f"{users[starter]}, You will go first.\n")
 
