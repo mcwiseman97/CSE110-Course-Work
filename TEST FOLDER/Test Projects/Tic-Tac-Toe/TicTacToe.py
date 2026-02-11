@@ -9,8 +9,6 @@ print(f"Welcome {users[0]} and {users[1]}! Best of luck!\n")
 
 starter = random.randint(0,1)
 
-
-
 aa = ""
 ab = ""
 ac = ""
@@ -23,8 +21,6 @@ ca = ""
 cb = ""
 cc = ""
 
-
-
 gamestatus = True
 print(f"{users[starter]}, You will go first.\n")
 
@@ -34,8 +30,6 @@ choice = input("What cell do you want to choose? (EX: a1)")
 
 if choice == "a1":
     aa = "o"
-
-
 
 print("   A       B       C  ")
 print("        |       |      ")
