@@ -23,3 +23,6 @@ with open("CSE110/W06/life-expectancy.csv") as census:
     print(f"For the year {choice_year}:")
     print(f"The max life expectancy was in {year_max[1]} with {year_max[0]}.")
     print(f"The min life expectancy was in {year_min[1]} with {year_min[0]}.")
+
+
+    
