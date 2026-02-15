@@ -1,6 +1,6 @@
 """
 Author: Michael Wiseman
-Assignement:
+Assignment:
 Date: 1/12/26
 """
 
