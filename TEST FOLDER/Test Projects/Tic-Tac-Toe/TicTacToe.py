@@ -1,99 +1,104 @@
+
 import random
+import os
 
-# TODO: Fix the tic tac toe board to display the correctly so the lines dont move when an X or O is placed on the board.
-# TODO: Make the console switch between player after each move.
-# TODO: Make the console clear after each move.
-# TODO: end the game if 3 spots in a row are filled with the same letter.
+def create_board():
+    """Creates a dictionary representing the Tic-Tac-Toe board."""
+    board = {}
+    for row in ['a', 'b', 'c']:
+        for col in ['1', '2', '3']:
+            board[f"{row}{col}"] = " "
+    return board
 
+def display_board(board):
+    """Displays the Tic-Tac-Toe board."""
+    # Clear the console - simple cross-platform way by printing newlines or using cls/clear
+    os.system('cls' if os.name == 'nt' else 'clear') 
+    
+    print("\n   A   B   C")
+    print(" 1 " + board['a1'] + " | " + board['b1'] + " | " + board['c1'])
+    print("  ---|---|---")
+    print(" 2 " + board['a2'] + " | " + board['b2'] + " | " + board['c2'])
+    print("  ---|---|---")
+    print(" 3 " + board['a3'] + " | " + board['b3'] + " | " + board['c3'])
+    print()
 
-print("\nWelcome to the game of Tic Tac Toe!\n")
-users = ["",""]
-users[0] = input("What is the first players name? ").capitalize()
-users[1] = input("\nWhat is the second players name? ").capitalize()
+def get_player_names():
+    """Gets the names of the two players."""
+    print("\nWelcome to the game of Tic Tac Toe!\n")
+    player1 = input("What is the first player's name? ").capitalize()
+    player2 = input("What is the second player's name? ").capitalize()
+    print(f"\nWelcome {player1} and {player2}! Best of luck!\n")
+    return [player1, player2]
 
-print(f"Welcome {users[0]} and {users[1]}! Best of luck!\n")
+def check_win(board, symbol):
+    """Checks if the given symbol has won."""
+    # Horizontal
+    if board['a1'] == symbol and board['b1'] == symbol and board['c1'] == symbol: return True
+    if board['a2'] == symbol and board['b2'] == symbol and board['c2'] == symbol: return True
+    if board['a3'] == symbol and board['b3'] == symbol and board['c3'] == symbol: return True
+    
+    # Vertical
+    if board['a1'] == symbol and board['a2'] == symbol and board['a3'] == symbol: return True
+    if board['b1'] == symbol and board['b2'] == symbol and board['b3'] == symbol: return True
+    if board['c1'] == symbol and board['c2'] == symbol and board['c3'] == symbol: return True
+    
+    # Diagonal
+    if board['a1'] == symbol and board['b2'] == symbol and board['c3'] == symbol: return True
+    if board['c1'] == symbol and board['b2'] == symbol and board['a3'] == symbol: return True
+    
+    return False
 
-starter = random.randint(0,1)
+def check_draw(board):
+    """Checks if the board is full."""
+    for key in board:
+        if board[key] == " ":
+            return False
+    return True
 
-aa = ""
-ab = ""
-ac = ""
+def get_move(player_name, symbol, board):
+    """Gets a valid move from the player."""
+    while True:
+        choice = input(f"{player_name} ({symbol}), choose a cell (e.g. a1): ").lower()
+        if choice in board and board[choice] == " ":
+            board[choice] = symbol
+            return
+        elif choice in board:
+            print("That cell is already taken. Try again.")
+        else:
+            print("Invalid cell. Please choose a1, a2, a3, b1, b2, b3, c1, c2, or c3.")
 
-ba = ""
-bb = ""
-bc = ""
+def main():
+    board = create_board()
+    players = get_player_names()
+    
+    # Randomly choose who starts
+    current_player_index = random.randint(0, 1)
+    symbols = ['X', 'O']
+    
+    print(f"{players[current_player_index]} will go first.")
+    input("Press Enter to start...")
 
-ca = ""
-cb = ""
-cc = ""
+    game_on = True
+    while game_on:
+        display_board(board)
+        
+        current_player = players[current_player_index]
+        current_symbol = symbols[current_player_index]
+        
+        get_move(current_player, current_symbol, board)
+        
+        if check_win(board, current_symbol):
+            display_board(board)
+            print(f"Congratulations! {current_player} wins!")
+            game_on = False
+        elif check_draw(board):
+            display_board(board)
+            print("It's a draw!")
+            game_on = False
+        else:
+            # Switch player
+            current_player_index = 1 - current_player_index
 
-gamestatus = True
-print(f"{users[starter]}, You will go first.\n")
-
-#while gamestatus:
-choice = input("What cell do you want to choose? (EX: a1)")
-
-if choice == "a1":
-    aa = "o"
-
-if choice == "a2":
-    ab = "o"
-
-if choice == "a3":
-    ac = "o"
-
-if choice == "b1":
-    ba = "o"
-
-if choice == "b2":
-    bb = "o"
-
-if choice == "b3":
-    bc = "o"
-
-if choice == "c1":
-    ca = "o"
-
-if choice == "c2":
-    cb = "o"
-
-if choice == "c3":
-    cc = "o"
-
-if choice == "a1":
-    aa = "x"
-
-if choice == "a2":
-    ab = "x"
-
-if choice == "a3":
-    ac = "x"
-
-if choice == "b1":
-    ba = "x"
-
-if choice == "b2":
-    bb = "x"
-
-if choice == "b3":
-    bc = "x"
-
-if choice == "c1":
-    ca = "x"
-
-if choice == "c2":
-    cb = "x"
-
-if choice == "c3":
-    cc = "x"
-
-print("   A       B       C  ")
-print("        |       |      ")
-print(f"1    {aa}   |   {ba}    |   {ca}  ")
-print("  _ _ _ | _ _ _ | _ _ _")
-print("        |       |      ")
-print(f"2    {ab}   |   {bb}    |   {cb}  ")
-print("  _ _ _ | _ _ _ | _ _ _")
-print("        |       |      ")
-print(f"3    {ac}   |   {bc}    |   {cc}  ")
-print("        |       |      ")
+if __name__ == "__main__":
+    main()
