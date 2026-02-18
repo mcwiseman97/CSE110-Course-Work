@@ -1,6 +1,7 @@
-
+# TODO: Add a way to start the game over after a win or draw.
 import random
 import os
+
 
 def create_board():
     """Creates a dictionary representing the Tic-Tac-Toe board."""
@@ -34,18 +35,26 @@ def get_player_names():
 def check_win(board, symbol):
     """Checks if the given symbol has won."""
     # Horizontal
-    if board['a1'] == symbol and board['b1'] == symbol and board['c1'] == symbol: return True
-    if board['a2'] == symbol and board['b2'] == symbol and board['c2'] == symbol: return True
-    if board['a3'] == symbol and board['b3'] == symbol and board['c3'] == symbol: return True
+    if board['a1'] == symbol and board['b1'] == symbol and board['c1'] == symbol:
+        return True
+    if board['a2'] == symbol and board['b2'] == symbol and board['c2'] == symbol:
+        return True
+    if board['a3'] == symbol and board['b3'] == symbol and board['c3'] == symbol:
+        return True
     
     # Vertical
-    if board['a1'] == symbol and board['a2'] == symbol and board['a3'] == symbol: return True
-    if board['b1'] == symbol and board['b2'] == symbol and board['b3'] == symbol: return True
-    if board['c1'] == symbol and board['c2'] == symbol and board['c3'] == symbol: return True
+    if board['a1'] == symbol and board['a2'] == symbol and board['a3'] == symbol:
+        return True
+    if board['b1'] == symbol and board['b2'] == symbol and board['b3'] == symbol:
+        return True
+    if board['c1'] == symbol and board['c2'] == symbol and board['c3'] == symbol:
+        return True
     
     # Diagonal
-    if board['a1'] == symbol and board['b2'] == symbol and board['c3'] == symbol: return True
-    if board['c1'] == symbol and board['b2'] == symbol and board['a3'] == symbol: return True
+    if board['a1'] == symbol and board['b2'] == symbol and board['c3'] == symbol:
+        return True
+    if board['c1'] == symbol and board['b2'] == symbol and board['a3'] == symbol:
+        return True
     
     return False
 
@@ -55,6 +64,7 @@ def check_draw(board):
         if board[key] == " ":
             return False
     return True
+
 
 def get_move(player_name, symbol, board):
     """Gets a valid move from the player."""

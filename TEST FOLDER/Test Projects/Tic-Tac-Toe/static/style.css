@@ -1,0 +1,113 @@
+:root {
+  --bg-color: #1a1a2e;
+  --board-bg: rgba(255, 255, 255, 0.05);
+  --cell-hover: rgba(255, 255, 255, 0.1);
+  --accent-x: #e94560;
+  --accent-o: #0f3460; /* Darker blue but we'll make it pop */
+  --accent-o-light: #4cc9f0;
+  --text-color: #ffffff;
+  --shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Outfit", sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(45deg, #16213e, #1a1a2e);
+}
+
+.container {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+h1 {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  font-size: 2.5rem;
+  letter-spacing: 2px;
+  background: linear-gradient(to right, #e94560, #4cc9f0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#status {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0.8;
+}
+
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  gap: 10px;
+  margin-bottom: 2rem;
+}
+
+.cell {
+  background: var(--board-bg);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: white;
+}
+
+.cell:hover {
+  background: var(--cell-hover);
+  transform: scale(1.05);
+}
+
+.cell.x {
+  color: var(--accent-x);
+  text-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
+}
+
+.cell.o {
+  color: var(--accent-o-light);
+  text-shadow: 0 0 10px rgba(76, 201, 240, 0.5);
+}
+
+.reset-btn {
+  background: linear-gradient(45deg, var(--accent-x), #d62f4d);
+  border: none;
+  padding: 10px 30px;
+  border-radius: 50px;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 1rem;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+  box-shadow: 0 4px 15px rgba(233, 69, 96, 0.4);
+}
+
+.reset-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(233, 69, 96, 0.6);
+}
+
+.reset-btn:active {
+  transform: translateY(1px);
+}

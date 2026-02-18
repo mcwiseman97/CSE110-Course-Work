@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modern Tic-Tac-Toe</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Tic Tac Toe</h1>
+        <p id="status">Player X's Turn</p>
+      </header>
+
+      <div class="game-board">
+        <div class="cell" id="a1" onclick="makeMove('a1')"></div>
+        <div class="cell" id="b1" onclick="makeMove('b1')"></div>
+        <div class="cell" id="c1" onclick="makeMove('c1')"></div>
+
+        <div class="cell" id="a2" onclick="makeMove('a2')"></div>
+        <div class="cell" id="b2" onclick="makeMove('b2')"></div>
+        <div class="cell" id="c2" onclick="makeMove('c2')"></div>
+
+        <div class="cell" id="a3" onclick="makeMove('a3')"></div>
+        <div class="cell" id="b3" onclick="makeMove('b3')"></div>
+        <div class="cell" id="c3" onclick="makeMove('c3')"></div>
+      </div>
+
+      <button onclick="resetGame()" class="reset-btn">New Game</button>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+</html>
