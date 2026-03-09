@@ -1,7 +1,7 @@
 """
 Author: Michael Wiseman
 Assignment: Meal Calculator + Tax
-Date: 1/8/26
+Date: 3/9/26
 """
 
 # Gather meal cost
@@ -29,6 +29,6 @@ print(f"Total: ${total_cost:.2f}")
 print()
 
 # Calculate amount paid and provide change amount
-paid_amount = float(input("What is the payement amount? "))
+paid_amount = float(input("What is the payment amount? "))
 change = paid_amount - total_cost
 print(f"Change: ${change:.2f}")
