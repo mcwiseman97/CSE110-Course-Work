@@ -1,11 +1,3 @@
-"""
-Author: Michael
-Assignment: Shopping cart
-Date: 3/27/26
-"""
-
-# Added way to see each item before removing it.
-# Added a clear terminal after each action to keep the terminal clean. (force user to verify it ready to clear and return to menu)
 import os
 
 cart = []
