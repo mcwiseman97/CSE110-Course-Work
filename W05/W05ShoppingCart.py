@@ -6,6 +6,7 @@ Date: 3/27/26
 
 # Added way to see each item before removing it.
 # Added a clear terminal after each action to keep the terminal clean. (force user to verify it ready to clear and return to menu)
+# used enumerate start=1 to make the item numbers more intuitive for the user instead of starting at 0.
 import os
 
 cart = []
