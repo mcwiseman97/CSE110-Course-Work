@@ -1,10 +1,10 @@
 """
 Author: Michael Wiseman
-Assignment:
-Date:
+Assignment: Data Analysis
+Date: 4/6/26
 """
 
-with open("CSE110/W06/life-expectancy.csv") as census:
+with open("/home/mcwiseman97/Documents/School/CSE110-Course-Work/W06/life-expectancy.csv") as census:
     next(census)
     choice_year = int(input("What year are you checking for: "))
     print()
